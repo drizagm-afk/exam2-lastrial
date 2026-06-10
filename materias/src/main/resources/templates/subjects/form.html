@@ -1,0 +1,26 @@
+<div id="form-container" th:fragment="form"
+     th:object="${subject}" th:with="isRegistry = ${subject.id == null}">
+    <form id="form" th:action="@{${isRegistry} ? '/subjects/create' : '/subjects/update'}" method="post">
+        <h2 th:text="${isRegistry} ? 'Registrar Materia' : 'Editar Materia'">PlaceHolder</h2>
+        <input type="hidden" th:field="*{id}">
+        <div id="form-fields">
+            <label>Nombre:</label>
+            <input type="text" th:field="*{name}"
+                   placeholder="Ingresar Nombre" required>
+            <label>Bachillerato:</label>
+            <select th:field="*{bachiller}">
+                <option th:each="b : ${bachillers}"
+                        th:value="${b.id}" th:text="${b.name}"></option>
+            </select>
+            <label>Profesor:</label>
+            <select th:field="*{professor}">
+                <option th:each="p : ${professors}"
+                        th:value="${p.id}" th:text="${p.firstName} + ', ' + ${p.lastName}"></option>
+            </select>
+        </div>
+        <div id="form-btns">
+            <button id="btn-cancel" type="button" onclick="closeForm()">Cancelar</button>
+            <button id="btn-submit" type="submit" th:text="${isRegistry} ? 'Registrar' : 'Actualizar'">PlaceHolder</button>
+        </div>
+    </form>
+</div>

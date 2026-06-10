@@ -1,0 +1,14 @@
+@import "styles.css";
+
+#btns {
+    display: flex;
+    justify-content: space-around;
+    gap: 24px;
+}
+
+a {
+    padding: 0.65rem 1.25rem;
+    color: white;
+    background-color: var(--primary);
+    border-radius: 6px;
+}

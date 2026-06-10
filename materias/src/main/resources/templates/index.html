@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+    <!--My Styles-->
+    <link rel="stylesheet" th:href="@{/css/homeStyles.css}">
+</head>
+<body>
+
+<div id="btns">
+    <a th:href="@{/profs}">Profesores</a>
+    <a th:href="@{/bachillers}">Bachilleratos</a>
+    <a th:href="@{/subjects}">Materias</a>
+</div>
+
+</body>
+</html>

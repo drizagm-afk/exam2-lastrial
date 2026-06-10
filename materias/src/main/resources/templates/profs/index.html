@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Profesores</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+    <!--My Styles-->
+    <link rel="stylesheet" th:href="@{/css/formStyles.css}">
+</head>
+<body>
+
+<div id="header">
+    <a th:href="@{/home}"><i class="fa-solid fa-circle-chevron-left"></i></a>
+    <h1 id="title">Profesores</h1>
+    <button class="btn-registry" onclick="registry()"><i class="fa-solid fa-plus"></i>Nuevo Profesor</button>
+</div>
+<table id="table">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Dirección</th>
+        <th>Teléfono</th>
+        <th>Especialidad</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody id="data">
+    </tbody>
+</table>
+<div id="form-holder"></div>
+
+<!--My Scripts-->
+<script th:src="@{/js/profsCrud.js}"></script>
+
+</body>
+</html>

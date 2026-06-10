@@ -1,0 +1,30 @@
+<div id="form-container" th:fragment="form"
+     th:object="${professor}" th:with="isRegistry = ${professor.id == null}">
+    <form id="form" th:action="@{${isRegistry} ? '/profs/create' : '/profs/update'}" method="post">
+        <h2 th:text="${isRegistry} ? 'Registrar Profesor' : 'Editar Profesor'">PlaceHolder</h2>
+        <input type="hidden" th:field="*{id}">
+        <div id="form-fields">
+            <label>Nombre:</label>
+            <input type="text" th:field="*{firstName}"
+                   placeholder="Ingresar Nombre" required>
+            <label>Apellido:</label>
+            <input type="text" th:field="*{lastName}"
+                   placeholder="Ingresar Apellido" required>
+            <label>Dirección:</label>
+            <input type="text" th:field="*{address}"
+                   placeholder="Ingresar Dirección" required>
+            <label>Teléfono:</label>
+            <input type="text" th:field="*{phoneNumber}"
+                   placeholder="Ingresar Teléfono" required
+                   pattern="\d{9}" oninput="this.setCustomValidity('')"
+                   oninvalid="this.setCustomValidity('El Número de Teléfono debe tener el formato 123456789')">
+            <label>Especialidad:</label>
+            <input type="text" th:field="*{especiality}"
+                   placeholder="Ingresar Especialidad" required>
+        </div>
+        <div id="form-btns">
+            <button id="btn-cancel" type="button" onclick="closeForm()">Cancelar</button>
+            <button id="btn-submit" type="submit" th:text="${isRegistry} ? 'Registrar' : 'Actualizar'">PlaceHolder</button>
+        </div>
+    </form>
+</div>

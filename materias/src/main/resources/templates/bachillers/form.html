@@ -1,0 +1,21 @@
+<div id="form-container" th:fragment="form"
+     th:object="${bachiller}" th:with="isRegistry = ${bachiller.id == null}">
+    <form type="hidden" th:action="@{${isRegistry} ? '/bachillers/create' : '/bachillers/update'}" method="post">
+        <h2 th:text="${isRegistry} ? 'Registrar Bachillerato' : 'Editar Bachillerato'">PlaceHolder</h2>
+        <input type="hidden" th:field="*{id}">
+        <div id="form-fields">
+            <label>Nombre:</label>
+            <input type="text" th:field="*{name}"
+                   placeholder="Ingresar Nombre" required>
+            <label>Sección:</label>
+            <input type="text" th:field="*{section}"
+                   placeholder="Ingresar Sección" required
+                   pattern="\d+" oninput="this.setCustomValidity('')"
+                   oninvalid="this.setCustomValidity('La Sección debe ser un número')">
+        </div>
+        <div id="form-btns">
+            <button id="btn-cancel" type="button" onclick="closeForm()">Cancelar</button>
+            <button id="btn-submit" type="submit" th:text="${isRegistry} ? 'Registrar' : 'Actualizar'">PlaceHolder</button>
+        </div>
+    </form>
+</div>
